@@ -5,3 +5,9 @@ To activate virtual environment:
 
 run app:
 ```python app.py```
+
+run vue client, from 
+```
+cd client 
+npm run serve
+```
