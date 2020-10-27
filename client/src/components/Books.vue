@@ -1,10 +1,11 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-10">
+  <b-container>
+    <b-row>
+      <b-col col sm="10">
         <h1>Books</h1>
         <hr><br><br>
-        <button type="button" class="btn btn-success btn-sm" v-b-modal.book-modal>Add Book</button>
+        <alert></alert>
+        <button type="button" class="btn btn-success btn-sm" v-b-modal.book-modal>Add Book </button>
         <br><br>
         <table class="table table-hover">
           <thead>
@@ -32,8 +33,6 @@
             </tr>
           </tbody>
         </table>
-      </div>
-    </div>
     <b-modal ref="addBookModal"
            id="book-modal"
            title="Add a new book"
@@ -70,11 +69,14 @@
         </b-button-group>
       </b-form>
     </b-modal>
-  </div>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
 import axios from 'axios';
+import Alert from './Alert.vue';
 
 export default {
   data() {
@@ -86,6 +88,9 @@ export default {
         read: [],
       },
     };
+  },
+  components: {
+    alert: Alert,
   },
   methods: {
     getBooks() {
