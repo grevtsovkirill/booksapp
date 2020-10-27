@@ -169,6 +169,10 @@ export default {
       this.addBookForm.title = '';
       this.addBookForm.author = '';
       this.addBookForm.read = [];
+      this.editForm.id = '';
+      this.editForm.title = '';
+      this.editForm.author = '';
+      this.editForm.read = [];
     },
     onSubmit(evt) {
       evt.preventDefault();
@@ -202,6 +206,25 @@ export default {
         read,
       };
       this.updateBook(payload, this.editForm.id);
+    },
+    updateBook(payload, bookID) {
+      const path = `http://localhost:5000/books/${bookID}`;
+      axios.put(path, payload)
+        .then(() => {
+          this.getBooks();
+          this.message = 'Book updated';
+          this.showMessage = true;
+        })
+        .catch((error) => {
+          console.error(error);
+          this.getBooks();
+        });
+    },
+    onResetUdate(evt) {
+      evt.preventDefault();
+      this.$refs.editBookModal.hide();
+      this.initForm();
+      this.getBooks();
     },
   },
   created() {
