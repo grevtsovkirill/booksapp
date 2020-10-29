@@ -5,7 +5,9 @@
         <h1>Books</h1>
         <hr><br><br>
         <alert :message=message v-if="showMessage"></alert>
-        <button type="button" class="btn btn-success btn-sm" v-b-modal.book-modal>Add Book </button>
+        <button type="button"
+          class="btn btn-success btn-sm" v-b-modal.book-modal>
+            Add Your Favorite Book </button>
         <br><br>
         <table class="table table-hover">
           <thead>
